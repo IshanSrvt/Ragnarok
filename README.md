@@ -62,7 +62,7 @@ The ESP32 reads sensor data, processes it, and uploads it to **ThingSpeak** for 
 - Smart factories & IoT dashboards  
 
 ## Team  
-Built by **Ishan Srivastava, Aadi Kadam, and team**  
+Built by **Ishan Srivastava, Aadi Kadam, Aryan Shirodkar, Ian Cervantes, and Samridhi
 Arizona State University – Robotics & Autonomous Systems (RAS)  
 Honeywell Hackathon, Tempe  
 
