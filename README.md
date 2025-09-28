@@ -2,6 +2,7 @@
 _Devil's Invent Hackathon Project_  
 Predictive Maintenance – IoT system using ESP32, DHT11, and MPU6050 to track engine temperature, humidity, and vibration (RMS &amp; Peak in g). Data is sent to ThingSpeak for real-time visualization, helping detect anomalies and support predictive maintenance.
 
+![Image of Prototype](./img.png)
 
 ## Overview  
 This project was built as part of the **Honeywell's Hackathon**.  
