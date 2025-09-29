@@ -1,70 +1,59 @@
-# ESP32 IoT Engine Monitoring 
+# IoT Engine Health Monitoring  
 _Devil's Invent Hackathon Project_  
-Predictive Maintenance – IoT system using ESP32, DHT11, and MPU6050 to track engine temperature, humidity, and vibration (RMS &amp; Peak in g). Data is sent to ThingSpeak for real-time visualization, helping detect anomalies and support predictive maintenance.
 
-![Image of Prototype](./img.png)
+Predictive Maintenance – A connected IoT system that monitors **engine temperature, surrounding conditions, and vibration levels**. The system sends processed data to the cloud for **real-time visualization**, helping detect subtle anomalies and enabling predictive maintenance for improved reliability and reduced downtime.  
+
+![Image of Prototype](./img.png)  
+
+---
 
 ## Overview  
-This project was built as part of the **Honeywell's Hackathon**.  
-It uses an **ESP32 microcontroller** connected with:  
-- **DHT11 sensor** → to measure temperature & humidity  
-- **MPU6050 sensor** → to measure vibration (RMS and peak acceleration in g)  
+This project was developed during the **Honeywell Hackathon at Arizona State University** under the theme of designing **intelligent connected propulsion systems**.  
 
-The ESP32 reads sensor data, processes it, and uploads it to **ThingSpeak** for real-time visualization.  
+The idea was to modernize engine systems by integrating **smart sensors** with IoT connectivity. By tracking environmental and vibration parameters, the system allows operators to detect **early signs of wear and tear** and prepare maintenance resources in advance. This helps minimize unscheduled maintenance events, reduce downtime, and extend equipment lifecycle — ultimately improving fleet reliability while supporting sustainability goals.  
+
+---
 
 ## Features  
-- Temperature, humidity, and heat index monitoring  
-- Vibration analysis using RMS and peak values  
-- Aggregated data sampled every 5 seconds  
-- Upload to ThingSpeak every 20 seconds  
-- Real-time IoT dashboard with graphs  
+- Continuous monitoring of **temperature, humidity, and heat index**  
+- **Vibration analysis** using RMS and peak deviation values  
+- Aggregated sampling for higher accuracy and noise reduction  
+- Cloud upload at regular intervals (20s)  
+- Real-time dashboard visualization for operators  
 
-## Hardware Connections  
+---
 
-### ESP32 to DHT11  
-- DHT11 **DATA** → GPIO 15  
-- VCC → 3.3V  
-- GND → GND  
+## System Architecture  
+1. **Data Collection** – IoT controller reads values from environmental and vibration sensors.  
+2. **Processing** – The controller aggregates vibration data (5s windows) to compute RMS and peak values.  
+3. **Cloud Upload** – Every 20s, processed data is securely uploaded to a cloud platform.  
+4. **Visualization** – A dashboard displays live charts for operators, showing trends in environmental and vibration data.  
 
-### ESP32 to MPU6050  
-- SDA → GPIO 21  
-- SCL → GPIO 22  
-- VCC → 3.3V  
-- GND → GND  
-
-## Software  
-- **Arduino IDE** with ESP32 board support  
-- Required libraries:  
-  - `WiFi.h`  
-  - `HTTPClient.h`  
-  - `DHT.h`  
-  - `MPU6050_light.h`  
-
-## ThingSpeak Setup  
-1. Create a ThingSpeak channel.  
-2. Add 5 fields:  
-   - Field 1: Temperature (°C)  
-   - Field 2: Humidity (%)  
-   - Field 3: Heat Index (°C)  
-   - Field 4: Vibration RMS (g)  
-   - Field 5: Vibration Peak (g)  
-3. Copy your API key and place it in the code.  
-
-## Data Flow  
-1. ESP32 collects data from DHT11 and MPU6050.  
-2. MPU6050 vibration data is sampled for **5 seconds** to compute RMS and Peak.  
-3. Every **20 seconds**, ESP32 uploads data to ThingSpeak.  
-4. ThingSpeak visualizes vibration and environmental conditions on live charts.  
+---
 
 ## Applications  
-- Industrial vibration monitoring  
-- Environmental sensing  
-- Predictive maintenance  
-- Smart factories & IoT dashboards  
+- Engine health monitoring and anomaly detection  
+- Predictive maintenance scheduling  
+- Reducing unplanned downtime in fleets  
+- Enhancing sustainability by extending equipment lifespan  
+- Smart factories and IoT-driven monitoring systems  
+
+---
+
+## Prototype Implementation  
+To replicate the industrial sensors and demonstrate the concept within the hackathon timeframe, we used the following components:  
+- **ESP32 microcontroller** as the IoT controller  
+- **Environmental sensor** (temperature & humidity) → simulated using DHT11  
+- **Vibration/acceleration sensor** → simulated using MPU6050  
+- **ThingSpeak cloud** for uploading and visualizing live data  
+
+While these modules are hobby-grade sensors, they served as a **proof-of-concept** for what industrial-grade sensor suites would achieve in real-world engine monitoring systems.  
+
+---
 
 ## Team  
-Built by **Ishan Srivastava, Aadi Kadam, Aryan Shirodkar, Ian Cervantes, and Samridhi**
-Arizona State University
-Devil's Invent Hackathon by Honeywell  
+Built by **Ishan Srivastava, Aadi Kadam, Aryan Shirodkar, Ian Cervantes, and Samridhi**  
+Arizona State University  
+**Devil's Invent Hackathon by Honeywell**  
 
----  
+---
